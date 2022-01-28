@@ -1,0 +1,22 @@
+sales_project: # Be sure to change this to your dbt project name
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      keyfile: /Users/yuan/.dbt/keyfile.json
+      project: corded-palisade-330422
+      schema: staging
+      threads: 4
+      timeout_seconds: 300
+      priority: interactive
+
+    prod:
+      type: bigquery
+      method: service-account
+      keyfile: "{{ env_var('DBT_BIGQUERY_KEYFILE') }}"
+      project: corded-palisade-330422
+      schema: production
+      threads: 4
+      timeout_seconds: 300
+      priority: interactive
