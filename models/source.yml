@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: liquor_sales
+    schema: iowa_liquor_sales
+    database: 'bigquery-public-data'
+    tables:
+
+      - name: sales
+        identifier: sales
+
