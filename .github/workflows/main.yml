@@ -45,7 +45,7 @@ jobs:
           
       # Add dbt seed or other commands here if needed
       - name: Run dbt models
-        run: dbt run --target prod
+        run: dbt run --profiles-dir . --target prod
 
       - name: Test dbt models
-        run: dbt test --target prod
+        run: dbt test --profiles-dir . --target prod
