@@ -45,7 +45,13 @@ jobs:
           
       # Add dbt seed or other commands here if needed
       - name: Run dbt models
-        run: dbt run --profiles-dir . --target prod
+        run: 'dbt run --profiles-dir . --target prod'
+        shell: bash
+        env:
+          KEYFILE: './dbt-service-account.json'
 
       - name: Test dbt models
-        run: dbt test --profiles-dir . --target prod
+        run: 'dbt test --profiles-dir . --target prod'
+        shell: bash
+        env:
+          KEYFILE: './dbt-service-account.json'
