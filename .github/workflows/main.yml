@@ -36,7 +36,7 @@ jobs:
         run: 'echo "$KEYFILE" > ./dbt-service-account.json'
         shell: bash
         env:
-          KEYFILE: ${{secrets.DBT_BIGQUERY_KEYFILE}}
+          KEYFILE: ./dbt-service-account.json
           
       - name: Install dependencies
         run: |
