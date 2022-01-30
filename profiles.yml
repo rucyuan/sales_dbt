@@ -15,7 +15,7 @@ sales_project: # Be sure to change this to your dbt project name
       type: bigquery
       method: service-account
       keyfile: "{{ env_var('KEYFILE') }}"
-      project: corded-palisade-330422
+      project: corded-palisadea-330422
       schema: production
       threads: 4
       timeout_seconds: 300
