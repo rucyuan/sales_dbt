@@ -37,9 +37,6 @@ jobs:
         shell: bash
         env:
           KEYFILE: ${{secrets.DBT_BIGQUERY_KEYFILE}}
-      
-      - name: Display keyfile
-        run: cat ./dbt-service-account.json
 
       - name: Install dependencies
         run: |
@@ -50,7 +47,7 @@ jobs:
       - name: Run dbt models
         run: dbt run --profiles-dir . --target prod
         env:
-          KEYFILE: ./dbt-service-account.json
+          KEYFILE: ./dbt-service-account1.json
 
       - name: Test dbt models
         run: dbt test --profiles-dir . --target prod
