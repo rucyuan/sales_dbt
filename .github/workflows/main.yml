@@ -47,7 +47,7 @@ jobs:
       - name: Run dbt models
         run: dbt run --profiles-dir . --target prod
         env:
-          KEYFILE: ./dbt-service-account1.json
+          KEYFILE: ./dbt-service-account.json
 
       - name: Test dbt models
         run: dbt test --profiles-dir . --target prod
