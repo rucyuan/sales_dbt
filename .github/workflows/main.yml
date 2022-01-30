@@ -37,7 +37,10 @@ jobs:
         shell: bash
         env:
           KEYFILE: ${{secrets.DBT_BIGQUERY_KEYFILE}}
-          
+      
+      - name: Display keyfile
+        run: cat ./dbt-service-account.json
+
       - name: Install dependencies
         run: |
           pip install dbt
@@ -45,7 +48,7 @@ jobs:
           
       # Add dbt seed or other commands here if needed
       - name: Run dbt models
-        run: dbt run --target prod
+        run: dbt run --profiles-dir . --target prod
         env:
           KEYFILE: ./dbt-service-account.json
 
